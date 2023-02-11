@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, '../../HW1-Numerics/Python/')
+sys.path.insert(1, '../../HW1_BuildGrid_Ops/Python/')
 
 from classfun import *
 from build_gridfun2D import build_grid 
