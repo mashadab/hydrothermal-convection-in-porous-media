@@ -50,7 +50,7 @@ Grid.Lz = Grid.zmax-Grid.zmin;    % domain length in z
 Grid.dz = Grid.Lz/Grid.Nz;        % dz of the gridblocks
 %% Number for fluxes
 Grid.Nfx = (Grid.Nx+1);
-
+Grid.N   = Grid.Nx*Grid.Ny*Grid.Nz;
 % Set up mesh
 % cell centers 'xc' and cell faces 'xf'   
 Grid.xc = [Grid.xmin+Grid.dx/2:Grid.dx:Grid.xmax-Grid.dx/2]'; % x-coords of gridblock centers
