@@ -118,13 +118,22 @@ def build_grid(Grid):
         
         Grid.A  = np.concatenate([A_rfaces ,A_zfaces], axis=0)
         Grid.V  = np.pi *((R_Vol + Grid.dx/2)**2 - (R_Vol - Grid.dx/2)**2) * Grid.dy
+
+    elif Grid.geom == 'cylindrical_r':
+        # In cylindrical coordinates dz are not used.
+        # assumes x = r    
+        R_Vol   = np.transpose([Grid.xc[np.argwhere(DOF.T)[:,0]]])
+        
+        Grid.A  = 2   * np.pi * (np.transpose([Grid.xf])) * Grid.dy
+        Grid.V  = np.pi *((R_Vol + Grid.dx/2)**2 - (R_Vol - Grid.dx/2)**2) * Grid.dy
+                
         
     elif Grid.geom == 'spherical_r':
         # In spherical coordinates dy and dz are not used.
         # assumes x = r    
         R_Vol   = np.transpose([Grid.xc[np.argwhere(DOF.T)[:,0]]])
         
-        Grid.A  = 4   * np.pi * Grid.xf**2
+        Grid.A  = 4   * np.pi * (np.transpose([Grid.xf]))**2
         Grid.V  = 4/3 * np.pi *((R_Vol + Grid.dx/2)**3 - (R_Vol - Grid.dx/2)**3)
                 
     else:
@@ -132,15 +141,13 @@ def build_grid(Grid):
         
     return Grid;
 
-'''
 class Grid:
     def __init__(self):
         self.xmin = []
         self.xmax = []
         self.Nx   = []
 
-Grid.xmin = 0; Grid.xmax = 1; Grid.Nx = 4
-Grid.ymin = 0; Grid.ymax = 1; Grid.Ny = 3
-Grid.geom = 'cylindrical'
+Grid.xmin = 0; Grid.xmax = 1; Grid.Nx = 10
+Grid.ymin = 0; Grid.ymax = 1; Grid.Ny = 1
+Grid.geom = 'spherical_r'
 Grid = build_grid(Grid)
-'''
