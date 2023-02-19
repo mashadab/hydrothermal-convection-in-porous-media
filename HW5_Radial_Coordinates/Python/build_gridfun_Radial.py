@@ -2,7 +2,7 @@ import numpy as np
     
 def build_grid(Grid):
     # Author: Mohammad Afzal Shadab
-    # Date: 01/27/2023
+    # Date: 02/18/2023
     
     # This function computes takes in minimal definition of the computational
     # domain and grid and computes all containing all pertinent information 
@@ -127,7 +127,7 @@ def build_grid(Grid):
         Grid.A  = 2   * np.pi * (np.transpose([Grid.xf])) * Grid.dy
         Grid.V  = np.pi *((R_Vol + Grid.dx/2)**2 - (R_Vol - Grid.dx/2)**2) * Grid.dy
                 
-        
+    
     elif Grid.geom == 'spherical_r':
         # In spherical coordinates dy and dz are not used.
         # assumes x = r    
@@ -141,6 +141,7 @@ def build_grid(Grid):
         
     return Grid;
 
+'''
 class Grid:
     def __init__(self):
         self.xmin = []
@@ -149,5 +150,6 @@ class Grid:
 
 Grid.xmin = 0; Grid.xmax = 1; Grid.Nx = 10
 Grid.ymin = 0; Grid.ymax = 1; Grid.Ny = 1
-Grid.geom = 'spherical_r'
+Grid.geom = 'cylindrical_r'
 Grid = build_grid(Grid)
+'''
