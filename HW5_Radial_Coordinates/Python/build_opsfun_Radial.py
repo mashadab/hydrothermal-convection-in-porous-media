@@ -106,7 +106,7 @@ def build_ops(Grid):
     
         Rcinv = sp.spdiags(1/(R_Vol.T),0,Grid.N,Grid.N)
         
-        print(np.shape(Rcinv),np.shape(D[:,:Grid.Nfx]),np.shape(sp.spdiags(R_rfaces.T,0,Grid.Nfx,Grid.Nfx)))
+        #print(np.shape(Rcinv),np.shape(D[:,:Grid.Nfx]),np.shape(sp.spdiags(R_rfaces.T,0,Grid.Nfx,Grid.Nfx)))
         
         D[:,:Grid.Nfx] =  Rcinv @ D[:,:Grid.Nfx] @ sp.spdiags(R_rfaces.T,0,Grid.Nfx,Grid.Nfx)
         
