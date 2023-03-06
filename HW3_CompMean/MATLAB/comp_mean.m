@@ -27,4 +27,4 @@ function [Kd] = comp_mean(K,M,p,Grid,kvkh) % repo MDOT
 % Kd = comp_mean(K(Grid.xc),M,1,Grid,1);
 
 Kmean = (M * K.^p).^(1/p);                % Compute general power mean
-Kd = spdiags(Kmean, 0, Grid.Nx+1, Grid.Nx+1);  % place on diagonal
+Kd = spdiags(Kmean, 0, Grid.Nf, Grid.Nf);  % place on diagonal

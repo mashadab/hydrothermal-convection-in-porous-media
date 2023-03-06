@@ -35,5 +35,5 @@ B = I(BC.dof_dir,:);
 N = I;
 N(:,BC.dof_dir) = [];
 
-fn = spalloc(Grid.Nx,1,0);
+fn = spalloc(Grid.N,1,0);
 end

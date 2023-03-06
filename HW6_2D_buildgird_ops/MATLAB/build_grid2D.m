@@ -1,4 +1,4 @@
-function [Grid] = build_grid(Grid)
+function [Grid] = build_grid2D(Grid)
 % Author: Superman
 % Date: X.Y.Z
 % Description:

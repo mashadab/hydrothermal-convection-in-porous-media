@@ -1,4 +1,4 @@
-function [D,G,C,I,M]=build_ops(Grid)
+function [D,G,C,I,M]=build_ops2D(Grid)
 % author: someone
 % date: someday
 % description:
