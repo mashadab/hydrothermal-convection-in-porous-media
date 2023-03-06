@@ -56,8 +56,12 @@ def comp_flux_gen(flux,res,u,Grid,Param):
     # 2) Determine sign of flux: Convention is that flux is positive in
     #    coordinate direction. So the boundary flux, qb is not equal to q*n,
     #    were n is the outward normal!
+    
     sign = np.multiply(np.isin(dof_face,np.concatenate((Grid.dof_f_xmin,Grid.dof_f_ymin),axis=0)), 1) - \
            np.multiply(np.isin(dof_face,np.concatenate((Grid.dof_f_xmax,Grid.dof_f_ymax),axis=0)), 1)
+     
+    if len(sign.shape) == 1:
+        sign = np.transpose([sign]) 
      
     #Because of Python indexing
     dof_cell = np.ravel(np.subtract(dof_cell,1))
